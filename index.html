@@ -1,49 +1,37 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-
-<head>
-    <title>Load GLB File Club</title>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <head><title>Aspose.3D</title></head>
     <style>
-        body {
-            margin: 0;
-        }
-        
-        canvas {
-            display: block;
-        }
+        #canvas {border:1px solid black;width: 900px;height:700px;}
     </style>
-</head>
+    <body>
+        <canvas id='canvas'></canvas>
+    </body>
+        <script>
+            var Aspose3D = {
+                locateFile : function(path, prefix) {
+                    return 'https://products.aspose.app/3d/assets/js/' + path;
+                }
+            };
+        </script>
+        <script src='https://products.aspose.app/3d/assets/js/aspose.3d-2.1.js'></script>
+        <script>
 
-<body>
-    <script>
-        // 创建场景
-        var scene = new THREE.Scene();
-        // 创建相机
-        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        // 创建渲染器
-        var renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
-
-        // 加载.glb文件
-        var loader = new THREE.GLTFLoader();
-        loader.load('model.glb', function(gltf) {
-            // 加载完成后添加到场景中
-            scene.add(gltf.scene);
-        });
-
-        // 设置相机位置
-        camera.position.z = 5;
-
-        // 渲染循环
-        function animate() {
-            requestAnimationFrame(animate);
-            renderer.render(scene, camera);
-        }
-        animate();
-    </script>
-</body>
-
+                aspose3d({
+                    canvas : 'canvas',
+                    movement : 'orbital',
+                    centerModel : true,
+                    features : ['grid', 'menu', 'summary', 'orientationBox', ],
+                    camera:
+                    {
+                        far: 1000,
+                        near: 1,
+                        up: 'y',
+                        lookAt : [0, 0, 0],
+                        position : [10, 10, 10],
+                        fov : 45
+                    },
+                    url: 'scene.usdz'
+                });
+        </script>
 </html>
