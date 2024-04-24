@@ -1,0 +1,7 @@
+{
+    "satellite": {
+        "satelliteId": "sduzw-piaaa-aaaal-ajana-cai",
+        "source": ".",
+        "ignore": ["**/juno.json", "**/.github/**/*", "**/CNAME", "**/LICENSE", "**/README.md", "**/.git/**/*"]
+    }
+}
