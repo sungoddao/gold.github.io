@@ -1,0 +1,220 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.slider {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-wrapper {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    min-width: 100%;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+    flex: 1 1 50%;
+    max-width: 500px;
+    object-fit: cover;
+}
+
+.text-content {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    flex: 1 1 50%;
+}
+
+.text-content h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.text-content h2 {
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+.text-content p {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.exchange-logos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.exchange-logo img {
+    width: 100px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.exchange-logo img:hover {
+    transform: scale(1.1);
+}
+
+.rain-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.word {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+
+/* Media Queries for Responsive Design */
+
+@media (max-width: 768px) {
+    .text-content h1 {
+        font-size: 2em;
+    }
+    .text-content h2 {
+        font-size: 1.5em;
+    }
+    .text-content p {
+        font-size: 1em;
+    }
+    nav ul li a {
+        font-size: 16px;
+    }
+    .exchange-logos {
+        flex-direction: column;
+    }
+    .exchange-logo {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-content h1 {
+        font-size: 1.5em;
+    }
+    .text-content h2 {
+        font-size: 1.2em;
+    }
+    .text-content p {
+        font-size: 0.9em;
+    }
+    nav ul li a {
+        font-size: 14px;
+    }
+    .slider img {
+        max-width: 100%;
+    }
+    .exchange-logos {
+        flex-direction: column;
+    }
+    .exchange-logo img {
+        width: 80px;
+    }
+}
+
+
+/* 在原有的 CSS 文件中添加以下样式 */
+
+.additional-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.additional-logos .logo {
+    width: calc(25% - 10px);
+    margin-bottom: 20px;
+}
+
+.additional-logos .logo img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* 添加以下 CSS 以确保内容不超出视口高度，并允许滚动 */
+
+body {
+    overflow-y: auto;
+    /* 允许垂直滚动 */
+    max-height: 100vh;
+    /* 设置最大高度为视口高度 */
+}
